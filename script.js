@@ -1,11 +1,14 @@
 let score = 0;
 const scoreDisplay = document.getElementById('score');
 const ball = document.getElementById('ball');
+const gameArea = document.querySelector('.game-area');
 
-// 랜덤 위치로 공 이동 함수
+// 게임 영역 내에서 랜덤 위치로 공 이동 함수
 function moveBall() {
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 100);
+    const maxX = gameArea.clientWidth - ball.clientWidth;
+    const maxY = gameArea.clientHeight - ball.clientHeight;
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
     ball.style.transform = `translate(${x}px, ${y}px)`;
 }
 
