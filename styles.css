@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #ecf0f1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,16 +12,34 @@ body {
     text-align: center;
 }
 
-.ball {
-    width: 100px;
-    height: 100px;
-    background-color: #3498db;
-    border-radius: 50%;
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.game-area {
+    width: 400px;
+    height: 400px;
+    background-color: #bdc3c7;
+    border-radius: 15px;
     position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ball {
+    width: 60px;
+    height: 60px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
 .ball:hover {
     transform: scale(1.1);
+    background-color: #c0392b;
 }
