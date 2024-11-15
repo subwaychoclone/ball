@@ -1,7 +1,9 @@
 let score = 0; // 현재 점수
 let level = 1; // 현재 레벨
-let time = 10.0; // 남은 시간
+let time = 10.0; // 남은 시간 (초 단위)
 let goal = 5; // 레벨 목표 점수
+
+const maxLevel = 100; // 최대 레벨 설정
 
 const scoreDisplay = document.getElementById('score');
 const goalDisplay = document.getElementById('goal');
@@ -23,20 +25,29 @@ function moveBall() {
 
 // 레벨 시작
 function startLevel() {
+    if (level > maxLevel) {
+        alert('축하합니다! 게임 클리어!');
+        resetGame();
+        return;
+    }
+
     score = 0;
-    time = 10.0;
+    time = 5 + level * 2; // 시간은 레벨에 비례하여 증가 (예: 5초 + 레벨 * 2초)
     goal = level * 5; // 목표 점수는 레벨 x 5
+
+    // 화면에 표시
     scoreDisplay.textContent = score;
     goalDisplay.textContent = goal;
     levelDisplay.textContent = level;
     timeDisplay.textContent = time.toFixed(1);
-    moveBall();
-    startTimer();
+
+    moveBall(); // 공 초기 위치 설정
+    startTimer(); // 타이머 시작
 }
 
 // 타이머 시작
 function startTimer() {
-    clearInterval(timer); // 기존 타이머가 있다면 초기화
+    clearInterval(timer); // 기존 타이머 초기화
     timer = setInterval(() => {
         time -= 0.1;
         timeDisplay.textContent = time.toFixed(1);
@@ -72,7 +83,7 @@ ball.addEventListener('click', () => {
     scoreDisplay.textContent = score;
     
     if (score >= goal) {
-        clearInterval(timer); // 목표 달성 시 즉시 타이머 멈춤
+        clearInterval(timer); // 목표 달성 시 타이머 중지
         checkLevelCompletion();
     } else {
         moveBall();
