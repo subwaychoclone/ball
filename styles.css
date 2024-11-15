@@ -12,9 +12,9 @@ body {
     text-align: center;
 }
 
-h1 {
+h1, h2, h3 {
     color: #2c3e50;
-    margin-bottom: 20px;
+    margin: 10px 0;
 }
 
 .game-area {
@@ -25,6 +25,7 @@ h1 {
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
 }
 
 .ball {
