@@ -62,11 +62,11 @@ function startTimer() {
 // 레벨 완료 확인
 function checkLevelCompletion() {
     if (score >= goal) {
-        alert(`축하합니다! 레벨 ${level} 통과!`);
+        alert(`ㅊㅋㅊㅋ 레벨 ${level} 통과!`);
         level++;
         startLevel();
     } else {
-        alert('게임 오버! 목표를 달성하지 못했습니다.');
+        alert('게임 오버! 다음에 더 잘해보세요.');
         resetGame();
     }
 }
